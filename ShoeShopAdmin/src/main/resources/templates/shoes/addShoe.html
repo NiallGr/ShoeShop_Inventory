@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Shoe</title>
+<!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/stylesheet.css}" />
+</head>
+<body>
+	
+	<div class="container" id="addShoe" style="margin-top:10%">
+	
+		<h3>Shoe Inventory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Add Shoe</p>
+	
+						<!-- Add Shoe Form   -->
+		<form action="#" th:action="@{/shoes/save}"
+						th:object="${shoe}" method="POST">
+					<!--  hidden form field for update  -->		
+				<input type="hidden" th:field="*{id}" />
+		
+		<input type="text" th:field="*{shoeName}"
+					class="form-control mb-4 col-4" placeholder="Shoe Name">
+					
+		<input type="text" th:field="*{shoePrice}"
+					class="form-control mb-4 col-4" placeholder="Shoe Price">
+					
+		<input type="text" th:field="*{shoeDescription}"
+					class="form-control mb-4 col-4" placeholder="Shoe Description">
+					
+		<input type="text" th:field="*{imgUrl}"
+					class="form-control mb-4 col-4" placeholder="Shoe Image">
+					
+		<button type="submit" class="btn btn-info col-2">Add</button>
+		
+		<hr>
+					<!-- Link back to shoe inventory -->
+		<a th:href="@{/shoes/list}">Back to inventory list</a>
+		</form>
+	</div>
+</body>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

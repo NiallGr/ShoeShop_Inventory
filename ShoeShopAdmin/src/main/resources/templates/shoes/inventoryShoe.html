@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Shoe Inventory</title>
+<!-- CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/stylesheet.css}" />
+
+</head>
+<body>
+
+   						 <!-- Side bar -->
+  <div class="row">
+        <div class="col-1 px-1 bg-dark position-fixed sidebarbackground" id="sticky-sidebar">
+            <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white p-2">
+            
+              	<img src="https://img.icons8.com/cotton/128/000000/trainers.png" style="height: 10%; Width: 90%">
+              	
+              	
+              			<!--  Add Shoe Button -->
+			<a th:href="@{/shoes/showAddShoeForm}" id="AddButtom"
+   				class="btn btn-outline-primary mt-4">
+   				Add Shoe
+ 			</a>
+              	
+         			   <!-- Log out button -->
+	<form action="#" th:action="@{/logout}" id="logoutButtom" style="margin-top:460%;"
+			   method="POST">
+		<input type="submit" value="Logout" class="btn btn-outline-primary mt" />
+	</form>	
+         </div>
+       </div>
+      </div>
+      		   <!-- Shoe inventory Container -->
+<div class="container mt-4 mb-5">
+	<h3>Shoe Inventory</h3>
+	<hr>
+	
+  					<!-- Table Headings -->
+	
+	<table class="table table-bordered table-hover InventoryTable" style="">
+		<thead class="thead-dark">
+		
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Description</th>
+				<th>Image</th>
+				<th>Action</th>
+			</tr>
+		
+		</thead> 
+		  		<!-- Table Content -->
+			<tbody>
+			<tr th:each="tempShoe : ${shoes}">
+			
+				<td th:text="${tempShoe.shoeName}" />	
+				<td th:text="${tempShoe.shoePrice}" />	
+				<td th:text="${tempShoe.shoeDescription}" />
+				<td>
+   					 <a th:href="${tempShoe.imgUrl}" th:text="${tempShoe.imgUrl}" target="_blank" rel="noopener noreferrer" style="font-size:small;"/></a>
+				</td>
+					<!-- Update -->
+				
+					<td>
+					<div class="DeleteandUpdateButton" sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+					<!-- Add update button -->
+					<a th:href="@{/shoes/showUpdateShoeForm(shoeId=${tempShoe.id})}"
+					   class="btn btn-info btn-sm" style="width: 80px">
+						Update
+					</a>
+					</div>
+					
+					<!-- Delete -->
+					<div class="DeleteandUpdateButton" sec:authorize="hasRole('ROLE_ADMIN')"> 
+					<!-- Add delete button -->					
+					<a th:href="@{/shoes/delete(shoeId=${tempShoe.id})}"
+					   class="btn btn-danger btn-sm" style="width: 80px"
+					   onclick="if (!(confirm('Are you sure you want to delete this Shoe?'))) return false">
+						Delete
+					</a>
+					</div> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+
+</body>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
