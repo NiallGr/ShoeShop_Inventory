@@ -21,15 +21,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-			.withUser(users.username("Niall").password("Password1").roles("MANAGER", "ADMIN"))
-			.withUser(users.username("john").password("test123").roles("EMPLOYEE"))
-			.withUser(users.username("mary").password("test123").roles("EMPLOYEE", "MANAGER"))
-			.withUser(users.username("susan").password("test123").roles("EMPLOYEE", "ADMIN"));
+			.withUser(users.username("Niall").password("test123").roles("MANAGER", "ADMIN"))
+			.withUser(users.username("Sean").password("test123").roles("EMPLOYEE"))
+			.withUser(users.username("Pete").password("test123").roles("EMPLOYEE", "MANAGER"))
+			.withUser(users.username("Jake").password("test123").roles("EMPLOYEE", "ADMIN"));
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
+			// What parts of the site user have access to based on their role 
 		http.authorizeRequests()
 			.antMatchers("/shoes/list*").hasAnyRole("MANAGER", "ADMIN","EMPLOYEE" )
 			.antMatchers("/shoes/save*").hasAnyRole("MANAGER", "ADMIN")
