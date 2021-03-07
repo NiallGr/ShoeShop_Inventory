@@ -1,12 +1,13 @@
+body {
+	background: #d1d0cd;
+}
+
 .InventoryTable {
 	  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
               0 2px 2px rgba(0,0,0,0.12), 
               0 4px 4px rgba(0,0,0,0.12), 
               0 8px 8px rgba(0,0,0,0.12),
               0 16px 16px rgba(0,0,0,0.12);
-}
-.body {
-	background: url(https://cdn.pixabay.com/photo/2020/11/19/20/25/shoes-5759738_960_720.jpg)
 }
 
 .jumbotron {
@@ -45,3 +46,17 @@ margin-top: 10%;
     border-radius: 25px;
     padding: 25px;
 }
+.ImgForLogoutButton {
+	margin-top:480px;
+}
+
+ @media (min-width:1600px){
+ .ImgForLogoutButton {
+	margin-top:660px;
+	margin-left: 6%;
+}  
+.ImgForAddButton{
+	Height:68px;
+}
+
+    }
