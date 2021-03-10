@@ -47,7 +47,7 @@ margin-top: 10%;
     padding: 25px;
 }
 .ImgForLogoutButton {
-	margin-top:480px;
+	margin-top:520px;
 }
 
  @media (min-width:1600px){
@@ -58,5 +58,7 @@ margin-top: 10%;
 .ImgForAddButton{
 	Height:68px;
 }
-
+#AddButtom {
+	width: 90px
+}
     }

@@ -22,16 +22,16 @@
 					<!--  hidden form field for update  -->		
 				<input type="hidden" th:field="*{id}" />
 		
-		<input type="text" th:field="*{shoeName}"
+		<input type="text" th:field="*{shoeName}" required
 					class="form-control mb-4 col-4" placeholder="Shoe Name">
 					
-		<input type="text" th:field="*{shoePrice}"
+		<input type="text" th:field="*{shoePrice}" required
 					class="form-control mb-4 col-4" placeholder="Shoe Price">
 					
-		<input type="text" th:field="*{shoeDescription}"
+		<input type="text" th:field="*{shoeDescription}" required
 					class="form-control mb-4 col-4" placeholder="Shoe Description">
 					
-		<input type="text" th:field="*{imgUrl}"
+		<input type="text" th:field="*{imgUrl}" required
 					class="form-control mb-4 col-4" placeholder="Shoe Image">
 					
 		<button type="submit" class="btn btn-info col-2">Add</button>
