@@ -1,6 +1,6 @@
 # ShoeShop Inventory 
 
-Shoe Shop Inventory Site - CRUD functionality, User authentication, Role Based Access :
+Shoe Shop Inventory Site - CRUD functionality, User Authentication, Role Based Access :
 - Agile Scrum Development Cycle
 - Eclipse EE
 -	Maven
