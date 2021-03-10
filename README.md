@@ -11,7 +11,7 @@ Shoe Shop Inventory Site - CRUD functionality, User Authentication, Role Based A
 -	MySQL
 
 
-# Video Tour:  https://youtu.be/foFrtv_U9Wg
+# Video Tour: https://www.youtube.com/watch?v=ZGzmF8sl0U0
 
 # Test the Application
 1. Download project, Inport as Maven project (Eclipse)
